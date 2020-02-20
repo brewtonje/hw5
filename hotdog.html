@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<title>Joe's Hotdog Stand</title>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <title>Comp 20 HW05</title>
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="Hw5.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1 class="aligncenter"> Welcome to Joe&#8217;s Hotdog Stand</h1>
+
+<div class="foods">
+  <p id="hotdogswoo"></p>
+  <p id="frieswoo"></p>
+  <p id="drinkswoo"></p>
+  <p id="announcement1"></p>
+  <p id="announcement"></p>
+</div>
+
+<div class="list_info">
+	<p id="1"></p>
+	<p id="2"></p>
+	<p id="3"></p>
+	<p id="4"></p>
+	<p id="5" class="big"></p>
+</div>
+
+<div class="list_info">
+<img src="Vanilla-1s-258px.svg" alt="ad" width="100%">
+</div>
+
+
+<script>
+function myFunction() {
+
+  var hotdogs = prompt("How Many hotdogs do you want? (put 0 for none):","0");
+  var fries = prompt("How Many fries do you want? (put 0 for none):","0");
+  var drinks = prompt("How Many drinks do you want? (put 0 for none):","0");
+
+  hotdogs = parseInt(hotdogs);fries = parseInt(fries);drinks = parseInt(drinks);
+
+  if(hotdogs>0){
+        var hotdogs_price = hotdogs*3.25;
+        var hotdogs_price_round = (Math.round(hotdogs_price * 100) / 100).toFixed(2);
+
+        document.getElementById("hotdogswoo").innerHTML =
+        "you ordered " + hotdogs + " hotdog(s)! Each hotdog costs $3.25, This will cost: $" + hotdogs_price_round;
+      } else {
+            document.getElementById("hotdogswoo").innerHTML =
+            "you didn't order any hotdogs";
+  }
+
+  if(fries>0){
+        var fries_price = fries*2.00;
+        var fries_price_round = (Math.round(fries_price * 100) / 100).toFixed(2);
+
+        document.getElementById("frieswoo").innerHTML =
+        "you ordered " + fries + " fries! Each order of fries costs $2.00, This will cost: $" + fries_price_round;
+      } else {
+            document.getElementById("frieswoo").innerHTML =
+            "you didn't order any fries";
+  }
+
+
+  if(drinks>0){
+        var drinks_price = drinks*1.50;
+        var drinks_price_round = (Math.round(drinks_price * 100) / 100).toFixed(2);
+
+        document.getElementById("drinkswoo").innerHTML =
+        "you ordered " + drinks + " drink(s)! Each drink costs $1.50, This will cost: $" + drinks_price_round;
+      } else {
+            document.getElementById("drinkswoo").innerHTML =
+            "you didn't order any drinks";
+  }
+
+
+  var subtotal = hotdogs*3.25 + fries*2.00 + drinks*1.50;
+  var subtotal_round = (Math.round(subtotal * 100) / 100).toFixed(2);
+  document.getElementById("1").innerHTML =
+  "subtotal: $" + subtotal_round;
+
+  if (subtotal >= 20){
+
+	    document.getElementById("announcement1").innerHTML =
+        "&nbsp";
+
+        document.getElementById("announcement").innerHTML =
+        " :) &nbsp you qualify for our 10% discount! &nbsp :) ";
+
+        var discount = subtotal*.1;
+        var discount_round = (Math.round(discount * 100) / 100).toFixed(2);
+        document.getElementById("2").innerHTML =
+        "discount: $" + discount_round;
+
+        var total_discounted = subtotal - discount;
+        var total_discounted_round = (Math.round(total_discounted * 100) / 100).toFixed(2);
+        document.getElementById("3").innerHTML =
+        "total after discount: $" + total_discounted_round;
+
+        var tax = total_discounted*0.0625;
+        var tax_round = (Math.round(tax * 100) / 100).toFixed(2);
+        document.getElementById("4").innerHTML =
+        "tax: $" + tax_round;
+
+        var total_tax = total_discounted + tax;
+        var total_tax_round = (Math.round(total_tax * 100) / 100).toFixed(2);
+        document.getElementById("5").innerHTML =
+        "Total cost: $" + total_tax_round;
+
+        /*  (3.25-(3.25*0.1))+(2.925*0.0625)  for checking  */
+  } else {
+
+        var tax = subtotal*0.0625;
+        var tax_round = (Math.round(tax * 100) / 100).toFixed(2);
+        document.getElementById("4").innerHTML =
+        "tax: $" + tax_round;
+
+        var total_tax = subtotal + tax;
+        var total_tax_round = (Math.round(total_tax * 100) / 100).toFixed(2);
+        document.getElementById("5").innerHTML =
+        "Total cost: $" + total_tax_round;
+
+  }
+
+}
+
+
+myFunction()
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+* {
+	padding: 0;
+	margin: 2%;
+	list-style: none;
+	text-decoration: none;
+}
+
+.big {
+font-size: 30pt;
+}
+
+body {
+	background-image: url('http://getwallpapers.com/wallpaper/full/1/1/9/143166.jpg');
+}
+
+.list_info {
+	border-color: black;
+	border: thick;
+	font-family: 'Fredoka One', cursive;
+	background-color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-shadow: 1px 1px yellow;
+}
+
+
+.foods {
+  border: dashed;
+  padding: 2%;
+  padding-left: 5%;
+  border-color: red;
+  color: orangered;
+  font-family: 'Fredoka One', cursive;
+  font-size: 15pt;
+  background-color: yellow;
+}
+
+h1 {
+	font-family: 'Fredoka One', cursive;
+	text-shadow: -2px -2px yellow;
+	background-color: red;
+	width: 96%;
+
+}
+
+.aligncenter {
+	text-align: center;
+}
+
+#announcement {
+color: black;
+text-align: center;
+}
